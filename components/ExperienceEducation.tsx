@@ -3,13 +3,13 @@
 const experiences = [
   {
     title: "Php Developer",
-    company: "Tech Corp",
+    company: "Consumer Sketch",
     date: "May 2023 - Present",
     description: "Developing web applications using Next.js and Tailwind CSS.",
   },
   {
     title: "Laravel Developer Intern",
-    company: "Startup XYZ",
+    company: "Optic Computers",
     date: "November 2022 - March 2023",
     description: "Worked on UI/UX improvements and performance optimization.",
   },
@@ -18,7 +18,7 @@ const experiences = [
 const education = [
   {
     degree: "Bachelor of Computer Applications",
-    institution: "XYZ University",
+    institution: "Parul University",
     date: "June 2020 - March 2023",
   },
 ];

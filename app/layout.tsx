@@ -1,16 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Inter } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
   title: "Chirag Parmar",
@@ -24,8 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* <link rel="icon" href="/images/logo.png" sizes="any" /> */}
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-[#030014] antialiased`}
+        className={`${inter.className} bg-[#030014]`}
       >
         {children}
       </body>

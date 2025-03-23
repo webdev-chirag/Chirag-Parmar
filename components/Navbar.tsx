@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   FaLinkedin,
@@ -7,46 +8,51 @@ import {
   FaStackOverflow,
   FaInstagram,
 } from "react-icons/fa";
-import { useState } from "react";
 
-const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Experience/Education", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Connect", href: "#contact" },
-];
+interface SocialLink {
+  name: string;
+  icon: string;
+  href: string;
+  color: string;
+}
 
-const socialLinks = [
-  {
-    icon: FaLinkedin,
-    href: "https://linkedin.com/in/yourprofile",
-    color: "#0077B5",
-  },
-  { icon: FaGithub, href: "https://github.com/yourprofile", color: "#ffffff" },
-  {
-    icon: FaStackOverflow,
-    href: "https://stackoverflow.com/users/yourprofile",
-    color: "#F48024",
-  },
-  {
-    icon: FaInstagram,
-    href: "https://instagram.com/yourprofile",
-    color: "#E1306C",
-  },
-];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const iconMap: any = {
+  FaLinkedin,
+  FaGithub,
+  FaStackOverflow,
+  FaInstagram,
+};
 
 export default function Navbar() {
+  const navLinks = [
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Experience/Education", href: "#experience" },
+    // { name: "Projects", href: "#projects" },
+    { name: "Connect", href: "#contact" },
+  ];
+
+  const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleNavClick = () => {
-    setIsOpen(false);
-  };
+  useEffect(() => {
+    fetch("/data/socialLinks.json")
+      .then((res) => res.json())
+      .then((data) => setSocialLinks(data))
+      .catch((err) => console.error("Error loading social links:", err));
+  }, []);
+
+  const handleNavClick = () => setIsOpen(false);
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-[#101010] bg-opacity-50 backdrop-blur-lg text-white py-4 px-6 flex justify-between items-center z-50 border-b border-white/20">
       {/* Mobile Menu Button */}
-      <button className="md:hidden text-2xl" onClick={() => setIsOpen(!isOpen)}>
+      <button
+        className="md:hidden text-2xl"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle Menu"
+      >
         ☰
       </button>
 
@@ -70,25 +76,31 @@ export default function Navbar() {
 
       {/* Social Icons & Resume Button */}
       <div className="hidden md:flex space-x-4 items-center">
-        {socialLinks.map(({ icon: Icon, href, color }, index) => (
-          <a
-            key={index}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-2xl transition-colors duration-300 hover:text-[var(--icon-color)]"
-            style={{ ["--icon-color" as string]: color } as React.CSSProperties}
-          >
-            <Icon />
-          </a>
-        ))}
-        <a
+        {socialLinks.map(({ name, icon, href, color }, index) => {
+          const IconComponent = iconMap[icon]; // Get the corresponding icon component
+          return IconComponent ? (
+            <a
+              key={index}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl transition-colors duration-300 hover:text-[var(--icon-color)]"
+              style={
+                { ["--icon-color" as string]: color } as React.CSSProperties
+              }
+              aria-label={name}
+            >
+              <IconComponent />
+            </a>
+          ) : null;
+        })}
+        {/* <a
           href="/resume.pdf" // Update with actual resume path
           download
           className="ml-4 px-4 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-300 transition"
         >
           Download Resume
-        </a>
+        </a> */}
       </div>
     </nav>
   );

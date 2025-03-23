@@ -1,0 +1,26 @@
+[
+  {
+    "name": "LinkedIn",
+    "icon": "FaLinkedin",
+    "href": "https://linkedin.com/in/parmar-chirag",
+    "color": "#0077B5"
+  },
+  {
+    "name": "GitHub",
+    "icon": "FaGithub",
+    "href": "https://github.com/webdev-chirag",
+    "color": "#777bb4"
+  },
+  {
+    "name": "Stack Overflow",
+    "icon": "FaStackOverflow",
+    "href": "https://stackoverflow.com/users/21979587/chirag-parmar",
+    "color": "#F48024"
+  },
+  {
+    "name": "Instagram",
+    "icon": "FaInstagram",
+    "href": "https://instagram.com/chirag_15_2",
+    "color": "#E1306C"
+  }
+]

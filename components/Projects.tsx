@@ -4,23 +4,25 @@ import Image from "next/image";
 
 const projects = [
   {
+    title: "Anime Verce",
+    description:
+      "A Next.js app that uses a free, open-source API to display detailed information about anime, including characters, episodes, and ratings.",
+    image: "/projects/anime-verce.png",
+    link: "https://anime-verce.vercel.app",
+  },
+  {
     title: "Portfolio Website",
     description:
       "A modern, responsive portfolio built with Next.js and Tailwind CSS.",
     image: "/projects/portfolio.png",
-    link: "https://your-portfolio-link.com",
+    link: "https://chirag-parmar.vercel.app",
   },
   {
-    title: "E-commerce App",
-    description: "A full-stack e-commerce platform with Stripe integration.",
-    image: "/projects/ecommerce.png",
-    link: "https://your-ecommerce-link.com",
-  },
-  {
-    title: "Blog CMS",
-    description: "A headless CMS-powered blog using Next.js and GraphQL.",
-    image: "/projects/blog.png",
-    link: "https://your-blog-link.com",
+    title: "Comic Verse",
+    description:
+      "A React.js application styled with Tailwind CSS that leverages the Marvel Developer API to showcase detailed information about Marvel comics, characters, series, and events.",
+    image: "/projects/comic-verse.png",
+    link: "https://marvel-comic-verse.web.app",
   },
 ];
 

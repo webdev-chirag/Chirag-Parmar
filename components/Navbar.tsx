@@ -29,8 +29,8 @@ export default function Navbar() {
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Experience/Education", href: "#experience" },
-    // { name: "Projects", href: "#projects" },
-    { name: "Connect", href: "#contact" },
+    { name: "Projects", href: "#projects" },
+    // { name: "Connect", href: "#contact" },
   ];
 
   const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);
@@ -47,14 +47,16 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-[#101010] bg-opacity-50 backdrop-blur-lg text-white py-4 px-6 flex justify-between items-center z-50 border-b border-white/20">
-      {/* Mobile Menu Button */}
-      <button
-        className="md:hidden text-2xl"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle Menu"
-      >
-        ☰
-      </button>
+      {/* Left Section - Mobile Menu Button */}
+      <div className="flex items-center md:hidden">
+        <button
+          className="text-2xl"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Menu"
+        >
+          ☰
+        </button>
+      </div>
 
       {/* Navigation Links */}
       <div
@@ -74,10 +76,10 @@ export default function Navbar() {
         ))}
       </div>
 
-      {/* Social Icons & Resume Button */}
-      <div className="hidden md:flex space-x-4 items-center">
+      {/* Social Icons - Mobile & Desktop */}
+      <div className="flex space-x-4 items-center">
         {socialLinks.map(({ name, icon, href, color }, index) => {
-          const IconComponent = iconMap[icon]; // Get the corresponding icon component
+          const IconComponent = iconMap[icon];
           return IconComponent ? (
             <a
               key={index}
@@ -85,22 +87,13 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-2xl transition-colors duration-300 hover:text-[var(--icon-color)]"
-              style={
-                { ["--icon-color" as string]: color } as React.CSSProperties
-              }
+              style={{ ["--icon-color" as string]: color } as React.CSSProperties}
               aria-label={name}
             >
               <IconComponent />
             </a>
           ) : null;
         })}
-        {/* <a
-          href="/resume.pdf" // Update with actual resume path
-          download
-          className="ml-4 px-4 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-300 transition"
-        >
-          Download Resume
-        </a> */}
       </div>
     </nav>
   );

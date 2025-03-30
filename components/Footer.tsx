@@ -41,10 +41,10 @@ export default function Footer() {
         <p className="text-sm sm:text-base mb-4 sm:mb-0 text-gray-300">
           Contact me:{" "}
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:chiragparmar1502@outlook.com"
             className="text-white font-semibold hover:text-gray-400 transition"
           >
-            your.email@example.com
+            chiragparmar1502@outlook.com
           </a>
         </p>
 

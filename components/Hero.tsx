@@ -7,7 +7,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full max-w-7xl">
         {/* Left Content */}
-        <section className="w-full md:w-1/2 text-center md:text-left ">
+        <section className="w-full md:w-1/2 text-justify md:text-left pt-20">
           <h1 className="text-lg text-purple-400 fadeup">Hello, my name is</h1>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold fadeup">
             Chirag Parmar.
@@ -29,13 +29,14 @@ export default function Home() {
         </section>
 
         {/* Right Side SVG */}
-        <div className="w-full md:w-1/3  flex justify-center fadeup pb-5 md:pb-0">
+        <div className="w-full md:w-1/3 flex justify-center fadeup pb-5 md:pb-0">
           <Image
             src="/mainIconsdark.svg"
             alt="Hero Illustration"
             width={400}
             height={400}
             className="w-3/4 md:w-full h-auto drop-shadow-lg"
+            priority={true}
           />
         </div>
       </div>

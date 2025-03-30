@@ -18,7 +18,7 @@ export default function Home() {
           <div className="mt-4 text-lg text-gray-400 fadeup">
             <p>
               I&apos;m a passionate Web Developer specializing in Next.js,
-              TypeScript, and Tailwind CSS. Always eager to learn new
+              React js, Laravel and Tailwind CSS. Always eager to learn new
               technologies and bring ideas to life.
             </p>
             <p>

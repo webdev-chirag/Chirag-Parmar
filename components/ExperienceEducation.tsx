@@ -5,13 +5,17 @@ const experiences = [
     title: "Php Developer",
     company: "Consumer Sketch",
     date: "May 2023 - Present",
-    description: "Developing web applications using Next.js and Tailwind CSS.",
+    // description: "Learned React and Next.js while working on Laravel and React/Next.js projects.",
+    description:
+      "Worked on full-stack projects using Laravel, React, and Next.js. Gained hands-on experience in building dynamic web applications while enhancing performance and scalability.",
   },
   {
     title: "Laravel Developer Intern",
     company: "Optic Computers",
     date: "November 2022 - March 2023",
-    description: "Worked on UI/UX improvements and performance optimization.",
+    description:
+      "Developed projects using Laravel, deepened understanding of backend development, and explored the basics of Figma for UI/UX design.",
+    // description: "Gained hands-on experience with Laravel by working on projects and learned the basics of Figma for UI/UX design.",
   },
 ];
 

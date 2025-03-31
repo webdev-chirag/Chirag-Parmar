@@ -13,9 +13,9 @@ const experiences = [
     title: "Laravel Developer Intern",
     company: "Optic Computers",
     date: "November 2022 - March 2023",
-    description:
-      "Developed projects using Laravel, deepened understanding of backend development, and explored the basics of Figma for UI/UX design.",
-    // description: "Gained hands-on experience with Laravel by working on projects and learned the basics of Figma for UI/UX design.",
+    // description:
+    //   "Developed projects using Laravel, deepened understanding of backend development, and explored the basics of Figma for UI/UX design.",
+    description: "Gained hands-on experience with Laravel by working on projects and collaborating in a team environment.",
   },
 ];
 

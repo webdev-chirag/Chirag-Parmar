@@ -104,22 +104,43 @@ const techLogos: TechLogo[] = [
 
 // Adjusted for **responsiveness**
 const structuredRows: (TechLogo | null)[][] = [
-  [...techLogos.slice(0, 5), null, null], // Row 1: 5 items + 2 blanks
-  [null, ...techLogos.slice(5, 11), null], // Row 2: 6 items + 1 blank
-  [null, null, ...techLogos.slice(11, 15)], // Row 3: 4 items + 2 blanks
+  new Array(12).fill(null),
+  [...new Array(4).fill(null), ...techLogos.slice(0, 5), ...new Array(4)], // Row 1: 5 items + 2 blanks
+  [
+    ...new Array(4).fill(null),
+    ...techLogos.slice(5, 11),
+    ...new Array(4).fill(null),
+  ], // Row 2: 6 items + 1 blank
+  [
+    ...new Array(4).fill(null),
+    ...techLogos.slice(11, 15),
+    ...new Array(5).fill(null),
+  ], // Row 3: 4 items + 2 blanks
+  new Array(12).fill(null),
 ];
 
 export default function SkillsPcSection() {
   return (
     <section className="py-10 bg-[#101010] text-white">
       <div className="mt-24">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-2">
           Skills & Technologies
         </h2>
 
-        <div className="flex flex-col items-center gap-2 sm:gap-4">
+        <div
+          className="flex flex-col items-center gap-2 sm:gap-4 overflow-hidden  mask-gradient-x"
+          style={{
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            ["--mask-padding" as any]: "850px",
+          }}
+        >
           {structuredRows.map((row, rowIndex) => (
-            <div key={rowIndex} className="flex gap-2 sm:gap-4">
+            <div
+              key={rowIndex}
+              className={`flex gap-2 sm:gap-4 ${
+                rowIndex == 0 ? "relative before-gradient-up-dark" : ""
+              } ${rowIndex == 4 ? "relative after-gradient-down-dark" : ""}`}
+            >
               {row.map((tech, index) =>
                 tech ? (
                   <SkillCard key={index} tech={tech} />

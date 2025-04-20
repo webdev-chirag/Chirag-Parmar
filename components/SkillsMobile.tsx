@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
 
 type TechLogo = {
   name: string;
@@ -104,32 +103,14 @@ const techLogos: TechLogo[] = [
 ];
 
 export default function SkillsMobileSection() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [rows, setRows] = useState<any>([]);
-
-  useEffect(() => {
-    const updateRows = () => {
-      let columns = 5; // Default for large screens
-      if (window.innerWidth < 1024) columns = 4; // Tablets
-      if (window.innerWidth < 768) columns = 3; // Mobile
-
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const structuredRows: any = [];
-      for (let i = 0; i < techLogos.length; i += columns) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const row: any = techLogos.slice(i, i + columns);
-        while (row.length < columns) row.push(null); // Fill remaining spaces with blank cards
-        structuredRows.push(row);
-      }
-
-      setRows(structuredRows);
-    };
-
-    updateRows();
-    window.addEventListener("resize", updateRows);
-    return () => window.removeEventListener("resize", updateRows);
-  }, []);
-
+  const structuredRows: (TechLogo | null)[][] = [
+    [null, null, null, null, null],
+    [null, ...techLogos.slice(0, 4), null], // Row 1: 5 items + 2 blanks
+    [null, ...techLogos.slice(4, 8), null, null], // Row 2: 6 items + 1 blank
+    [null, ...techLogos.slice(8, 12), null], // Row 3: 4 items + 2 blanks
+    [null, null, ...techLogos.slice(12, 15), null, null], // Row 3: 4 items + 2 blanks
+    [null, null, null, null, null],
+  ];
   return (
     <section className="py-10 bg-[#101010] text-white">
       <div className="mt-24">
@@ -137,14 +118,16 @@ export default function SkillsMobileSection() {
           Skills & Technologies
         </h3>
 
-        <div className="flex flex-col items-center gap-2 sm:gap-4">
+        <div className="flex flex-col items-center gap-3 sm:gap-4 overflow-hidden mask-gradient-x ">
           {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            rows.map((row: any, rowIndex: number) => (
+            structuredRows.map((row: any, rowIndex: number) => (
               <div
                 key={rowIndex}
-                className={`flex gap-2 sm:gap-4 ${
-                  rowIndex % 2 === 0 ? "ml-0" : "ml-4 sm:ml-6 md:ml-8"
+                className={`flex gap-3 sm:gap-4 ${
+                  rowIndex % 2 === 0 ? "ml-10" : "ml-4 sm:ml-6 md:ml-8"
+                } ${rowIndex == 0 ? "relative before-gradient-up-dark" : ""} ${
+                  rowIndex == 5 ? "relative after-gradient-down-dark" : ""
                 }`}
               >
                 {

@@ -7,12 +7,12 @@ export default function Home() {
       {/* Hero Section */}
       <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full max-w-7xl">
         {/* Left Content */}
-        <section className="w-full md:w-1/2 text-justify md:text-left pt-20">
+        <section className="w-full md:w-1/2 text-left pt-20">
           <h1 className="text-lg text-purple-400 fadeup">Hello, my name is</h1>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold fadeup">
             Chirag Parmar.
           </h2>
-          <h3 className="text-2xl sm:text-3xl text-gray-300 fadeup">
+          <h3 className="text-2xl sm:text-3xl text-gray-300 fadeup mt-2">
             I love exploring new things!
           </h3>
           <div className="mt-4 text-lg text-gray-400 fadeup">

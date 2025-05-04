@@ -18,7 +18,7 @@ export default function Home() {
               words={[
                 "Full Stack Developer",
                 "Tech Enthusiast",
-                "Problem Solver",
+                // "Problem Solver",
                 "Next.js | Laravel | MySQL",
               ]}
               loop

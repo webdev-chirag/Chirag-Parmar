@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import toast from "react-hot-toast";
 
 const projects = [
   {
@@ -22,7 +23,8 @@ const projects = [
     description:
       "A React.js application styled with Tailwind CSS that leverages the Marvel Developer API to showcase detailed information about Marvel comics, characters, series, and events.",
     image: "/projects/comic-verse.png",
-    link: "https://marvel-comic-verse.web.app",
+    // link: "https://marvel-comic-verse.web.app",
+    link: "#",
   },
 ];
 
@@ -43,9 +45,20 @@ export default function ProjectsSection() {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ProjectCard({ project }: any) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (project.link === "#") {
+      toast("Project is under development.", {
+        icon: "🛠️",
+      });
+    } else {
+      window.open(project.link, "_blank");
+    }
+  };
   return (
     <a
       href={project.link}
+      onClick={handleClick}
       target="_blank"
       rel="noopener noreferrer"
       className="block bg-transparent bg-opacity-10 backdrop-blur-lg p-6 rounded-xl border border-white/20 transition-transform hover:scale-105"

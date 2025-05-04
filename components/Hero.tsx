@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { Typewriter } from "react-simple-typewriter";
 
 export default function Home() {
   return (
@@ -12,18 +13,31 @@ export default function Home() {
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold fadeup">
             Chirag Parmar.
           </h2>
-          <h3 className="text-2xl sm:text-3xl text-gray-300 fadeup mt-2">
-            I love exploring new things!
+          <h3 className="text-2xl sm:text-3xl text-purple-300 h-10 mt-2 fadeup">
+            <Typewriter
+              words={[
+                "Full Stack Developer",
+                "Tech Enthusiast",
+                "Problem Solver",
+                "Next.js | Laravel | MySQL",
+              ]}
+              loop
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1500}
+            />
           </h3>
           <div className="mt-4 text-lg text-gray-400 fadeup">
             <p>
-              I&apos;m a passionate Web Developer specializing in Next.js,
-              React js, Laravel and Tailwind CSS. Always eager to learn new
-              technologies and bring ideas to life.
+              I&apos;m a passionate developer who enjoys building impactful
+              digital solutions using modern technologies like Next.js,
+              React.js, Laravel, and Tailwind CSS.
             </p>
             <p>
-              I enjoy learning new skills and implementing them in real-world
-              projects!
+              Constantly learning, adapting, and striving to turn ideas into
+              clean, efficient, and scalable applications.
             </p>
           </div>
         </section>

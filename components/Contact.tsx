@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -14,9 +15,41 @@ export default function ContactSection() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Message sent!");
+
+    const submitPromise = fetch(
+      "https://script.google.com/macros/s/AKfycbzSy9wRxtZvdUQHrJDmMtKp6A8i5xBacW1DbEdTCzw7l7iCzJA54qKTAy16OPsRvwae/exec",
+      {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+      }
+    );
+
+    toast
+      .promise(
+        submitPromise.then(async (res) => {
+          const data = await res.json();
+          if (data.success) {
+            setFormData({ name: "", email: "", message: "" });
+            return "Message sent successfully!";
+          } else {
+            throw new Error(data.message ?? "Something went wrong.");
+          }
+        }),
+        {
+          loading: "Sending message...",
+          success: "Thank you! Your message has been successfully sent.", // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          error: (err: any) => err.message ?? "Failed to send message",
+        }
+      )
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .catch((err: any) => {
+        console.error("Form submission error:", err);
+      });
   };
 
   return (
@@ -31,7 +64,7 @@ export default function ContactSection() {
           </h2>
           <form
             onSubmit={handleSubmit}
-            className="bg-white bg-opacity-10 backdrop-blur-lg p-6 sm:p-8 rounded-xl border border-white/20 shadow-lg"
+            className="bg-white bg-opacity-10 backdrop-blur-lg p-6 sm:p-8 rounded-xl border border-white/20 shadow-lg text-[#101010]"
           >
             <input
               type="text"
@@ -39,7 +72,7 @@ export default function ContactSection() {
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-3 sm:p-4 mb-4 bg-transparent border border-gray-500 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300"
+              className="w-full p-3 sm:p-4 mb-4 bg-transparent border border-gray-500 rounded-lg  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300"
               required
             />
             <input
@@ -48,7 +81,7 @@ export default function ContactSection() {
               placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-3 sm:p-4 mb-4 bg-transparent border border-gray-500 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300"
+              className="w-full p-3 sm:p-4 mb-4 bg-transparent border border-gray-500 rounded-lg placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300"
               required
             />
             <textarea
@@ -56,7 +89,7 @@ export default function ContactSection() {
               placeholder="Your Message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full p-3 sm:p-4 mb-4 bg-transparent border border-gray-500 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 resize-none h-32 sm:h-40"
+              className="w-full p-3 sm:p-4 mb-4 bg-transparent border border-gray-500 rounded-lg  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 resize-none h-32 sm:h-40"
               required
             />
             <button

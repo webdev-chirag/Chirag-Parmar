@@ -30,7 +30,7 @@ export default function Navbar() {
     { name: "Skills", href: "#skills" },
     { name: "Experience/Education", href: "#experience" },
     { name: "Projects", href: "#projects" },
-    // { name: "Connect", href: "#contact" },
+    { name: "Connect", href: "#contact" },
   ];
 
   const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);

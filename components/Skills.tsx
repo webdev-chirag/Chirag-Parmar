@@ -57,7 +57,7 @@ export const skillSections: Section[] = [
         link: "https://nextjs.org",
       },
       {
-        name: "Tailwind",
+        name: "Tailwind CSS",
         src: "/icons/tailwind-css.svg",
         glow: "#38bdf8",
         link: "https://tailwindcss.com",

@@ -17,10 +17,8 @@ export default function Home() {
             <Typewriter
               words={[
                 "Full Stack Developer",
-                "Tech Explorer",
+                "Tech Enthusiast",
                 "Next.js | Laravel | MySQL",
-                "JavaScript | TypeScript | PHP",
-                "Building Scalable Web Apps"
               ]}              
               loop
               cursor

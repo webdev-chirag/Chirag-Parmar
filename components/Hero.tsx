@@ -17,10 +17,11 @@ export default function Home() {
             <Typewriter
               words={[
                 "Full Stack Developer",
-                "Tech Enthusiast",
-                // "Problem Solver",
+                "Tech Explorer",
                 "Next.js | Laravel | MySQL",
-              ]}
+                "JavaScript | TypeScript | PHP",
+                "Building Scalable Web Apps"
+              ]}              
               loop
               cursor
               cursorStyle="_"

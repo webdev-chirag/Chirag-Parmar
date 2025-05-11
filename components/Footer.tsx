@@ -1,6 +1,3 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import {
   FaLinkedin,
   FaGithub,
@@ -22,18 +19,10 @@ const iconMap: any = {
   FaStackOverflow,
   FaInstagram,
 };
-
-export default function Footer() {
-  const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);
-
-  useEffect(() => {
-    // Fetch JSON file
-    fetch("/data/socialLinks.json")
-      .then((res) => res.json())
-      .then((data) => setSocialLinks(data))
-      .catch((err) => console.error("Error loading social links:", err));
-  }, []);
-
+interface FooterProps {
+  socialLinks: SocialLink[];
+}
+export default async function Footer({ socialLinks }: Readonly<FooterProps>) {
   return (
     <footer className="bg-[#101010] text-white py-6 px-4 sm:px-10 border-t border-white/20 backdrop-blur-lg">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center">

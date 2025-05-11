@@ -1,4 +1,3 @@
-"use client";
 import ContactSection from "@/components/Contact";
 import ExperienceEducationSection from "@/components/ExperienceEducation";
 import Footer from "@/components/Footer";
@@ -8,10 +7,36 @@ import ProjectsSection from "@/components/Projects";
 import SkillsSection from "@/components/Skills";
 import { Toaster } from "react-hot-toast";
 
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    icon: "FaLinkedin",
+    href: "https://linkedin.com/in/parmar-chirag",
+    color: "#0077B5",
+  },
+  {
+    name: "GitHub",
+    icon: "FaGithub",
+    href: "https://github.com/webdev-chirag",
+    color: "#777bb4",
+  },
+  {
+    name: "Stack Overflow",
+    icon: "FaStackOverflow",
+    href: "https://stackoverflow.com/users/21979587/chirag-parmar",
+    color: "#F48024",
+  },
+  {
+    name: "Instagram",
+    icon: "FaInstagram",
+    href: "https://instagram.com/chirag_15_2",
+    color: "#E1306C",
+  },
+];
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <Navbar socialLinks={socialLinks} />
       <Toaster
         position="bottom-center"
         toastOptions={{
@@ -29,7 +54,7 @@ export default function Home() {
       <ExperienceEducationSection />
       <ProjectsSection />
       <ContactSection />
-      <Footer />
+      <Footer socialLinks={socialLinks} />
     </>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import {
   FaLinkedin,
@@ -23,8 +23,11 @@ const iconMap: any = {
   FaStackOverflow,
   FaInstagram,
 };
+interface NavbarProps {
+  socialLinks: SocialLink[];
+}
 
-export default function Navbar() {
+export default function Navbar({ socialLinks }: Readonly<NavbarProps>) {
   const navLinks = [
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
@@ -33,15 +36,7 @@ export default function Navbar() {
     { name: "Connect", href: "#contact" },
   ];
 
-  const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    fetch("/data/socialLinks.json")
-      .then((res) => res.json())
-      .then((data) => setSocialLinks(data))
-      .catch((err) => console.error("Error loading social links:", err));
-  }, []);
 
   const handleNavClick = () => setIsOpen(false);
 

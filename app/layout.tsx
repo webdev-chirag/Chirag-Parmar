@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
-const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Chirag Parmar",
@@ -17,9 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* <link rel="icon" href="/images/logo.png" sizes="any" /> */}
-      <body
-        className={`${inter.className} bg-[#030014]`}
-      >
+      <body className={`${inter.className} bg-[#030014]`}>
+        <Analytics />
         {children}
       </body>
     </html>

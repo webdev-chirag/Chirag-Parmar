@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Chirag Parmar | Full Stack Developer & Web Portfolio",
+  title: "Chirag Parmar | Full Stack Web Developer",
   description:
     "Welcome to the portfolio of Chirag Parmar, a full stack web developer specializing in Laravel, React, Next.js, Node.js, and other modern web technologies. Explore projects, skills, and professional experience.",
   keywords: [

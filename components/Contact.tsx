@@ -54,17 +54,21 @@ export default function ContactSection() {
 
   return (
     <section
-      className="py-12 px-4 sm:py-16 sm:px-6 bg-[#101010] text-white"
+      className="py-12 px-4 sm:py-16 sm:px-6 text-white"
       id="contact"
     >
       <div className="mt-16">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-center mb-8"
+            data-aos="fade-down"
+          >
             Get in Touch
           </h2>
           <form
             onSubmit={handleSubmit}
             className="bg-white bg-opacity-10 backdrop-blur-lg p-6 sm:p-8 rounded-xl border border-white/20 shadow-lg text-[#101010]"
+            data-aos="fade-up"
           >
             <input
               type="text"

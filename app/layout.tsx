@@ -3,6 +3,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import AOSProvider from "@/components/AOSProvider";
+import ParticlesBackground from "@/components/ParticlesBackground";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -55,10 +57,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* <link rel="icon" href="/images/logo.png" sizes="any" /> */}
-      <body className={`${inter.className} bg-[#030014]`}>
-        <Analytics />
-        <SpeedInsights />
-        {children}
+      <body className={`${inter.className}`}>
+        <AOSProvider>
+          <ParticlesBackground />
+          <main className="relative z-10">
+            <Analytics />
+            <SpeedInsights />
+            {children}
+          </main>
+        </AOSProvider>
       </body>
     </html>
   );

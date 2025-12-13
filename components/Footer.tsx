@@ -24,7 +24,7 @@ interface FooterProps {
 }
 export default async function Footer({ socialLinks }: Readonly<FooterProps>) {
   return (
-    <footer className="bg-[#101010] text-white py-6 px-4 sm:px-10 border-t border-white/20 backdrop-blur-lg">
+    <footer className="text-white py-6 px-4 sm:px-10 border-t border-white/20 backdrop-blur-lg">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center">
         {/* Email Section */}
         <p className="text-sm sm:text-base mb-4 sm:mb-0 text-gray-300">

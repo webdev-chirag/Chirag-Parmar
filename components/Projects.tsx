@@ -30,9 +30,14 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section className="py-16 bg-[#101010] text-white" id="projects">
+    <section className="py-16 text-white" id="projects">
       <div className="mt-16">
-        <h2 className="text-4xl font-bold text-center mb-10">Projects</h2>
+        <h2
+          className="text-4xl font-bold text-center mb-10"
+          data-aos="fade-down"
+        >
+          Projects
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-6 md:px-12">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
@@ -62,6 +67,7 @@ function ProjectCard({ project }: any) {
       target="_blank"
       rel="noopener noreferrer"
       className="block bg-transparent bg-opacity-10 backdrop-blur-lg p-6 rounded-xl border border-white/20 transition-transform hover:scale-105"
+      data-aos="zoom-in-up"
     >
       <Image
         src={project.image}

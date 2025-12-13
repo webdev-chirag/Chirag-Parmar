@@ -135,15 +135,20 @@ export default function SkillsSection() {
   }, []);
 
   return (
-    <section className="py-10 bg-[#101010] text-white" id="skills">
+    <section className="py-10 text-white" id="skills">
       <div className="mt-24">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+        <h2
+          className="text-3xl sm:text-4xl font-bold text-center mb-12"
+          data-aos="fade-down"
+        >
           Skills & Technologies
         </h2>
         <div className="space-y-8 px-4 max-w-6xl mx-auto ">
           {skillSections.map((section, i) => (
             <div key={i}>
-              <h2 className="text-xl font-bold mb-4">{section.title}</h2>
+              <h2 className="text-xl font-bold mb-4" data-aos="fade-right">
+                {section.title}
+              </h2>
               <div
                 className={`
               ${isMobile ? "grid grid-cols-1 gap-4 justify-items-center" : ""}
@@ -156,6 +161,7 @@ export default function SkillsSection() {
                     isMobile ? undefined : { left: -300, right: 0 }
                   }
                   className={`grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-9`}
+                  data-aos="fade-up"
                 >
                   {section.items.map((skill, idx) => (
                     <motion.a

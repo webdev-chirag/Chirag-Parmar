@@ -4,16 +4,30 @@ import { Typewriter } from "react-simple-typewriter";
 
 export default function Home() {
   return (
-    <div className="bg-[#101010] text-white md:min-h-screen min-h-full pt-20 flex items-center justify-center px-4 sm:px-8 md:px-16">
+    <div className="text-white md:min-h-screen min-h-full pt-20 flex items-center justify-center px-4 sm:px-8 md:px-16">
       {/* Hero Section */}
       <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full max-w-7xl">
         {/* Left Content */}
-        <section className="w-full md:w-1/2 text-left pt-20">
-          <h1 className="text-lg text-purple-400 fadeup">Hello, my name is</h1>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold fadeup">
+        <section className="w-full md:w-1/2 text-left pt-20" data-aos="fade-right">
+          <h1
+            className="text-lg text-purple-400 fadeup"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            Hello, my name is
+          </h1>
+          <h2
+            className="text-4xl sm:text-5xl md:text-6xl font-bold fadeup"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             Chirag Parmar.
           </h2>
-          <h3 className="text-2xl sm:text-3xl text-purple-300 h-10 mt-2 fadeup">
+          <h3
+            className="text-2xl sm:text-3xl text-purple-300 h-10 mt-2 fadeup"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             <Typewriter
               words={[
                 "Full Stack Developer",
@@ -28,7 +42,11 @@ export default function Home() {
               delaySpeed={1500}
             />
           </h3>
-          <div className="mt-4 text-lg text-gray-400 fadeup">
+          <div
+            className="mt-4 text-lg text-gray-400 fadeup"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             <p>
               I&apos;m a passionate developer who enjoys building impactful
               digital solutions using modern technologies like Next.js,
@@ -42,7 +60,11 @@ export default function Home() {
         </section>
 
         {/* Right Side SVG */}
-        <div className="w-full md:w-1/3 flex justify-center fadeup pb-5 md:pb-0">
+        <div
+          className="w-full md:w-1/3 flex justify-center fadeup pb-5 md:pb-0"
+          data-aos="fade-left"
+          data-aos-delay="500"
+        >
           <Image
             src="/mainIconsdark.svg"
             alt="Hero Illustration"

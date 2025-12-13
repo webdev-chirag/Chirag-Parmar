@@ -27,10 +27,13 @@ const education = [
 
 export default function ExperienceEducationSection() {
   return (
-    <section className="py-16 bg-[#101010] text-white" id="experience">
+    <section className="py-16 text-white" id="experience">
       <div className="mt-18">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-center mb-10"
+            data-aos="fade-down"
+          >
             Experience & Education
           </h2>
 
@@ -49,7 +52,10 @@ export default function ExperienceEducationSection() {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function TimelineItem({ data, isEducation = false }: any) {
   return (
-    <div className="relative pl-6 sm:pl-8 mb-8 border-l-2 border-gray-500">
+    <div
+      className="relative pl-6 sm:pl-8 mb-8 border-l-2 border-gray-500"
+      data-aos="fade-up"
+    >
       {/* Timeline Circle */}
       <div className="absolute w-3.5 h-3.5 sm:w-4 sm:h-4 bg-white rounded-full left-[-7px] sm:left-[-10px] top-2"></div>
 

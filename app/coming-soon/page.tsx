@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 import ParticlesBackground from "@/components/ParticlesBackground";
 
 export default function ComingSoon() {
